@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="wizard_link_feedback" model="ir.ui.view">
+        <field name="name">Feedback Link</field>
+        <field name="model">copy.link.wizard.feedback</field>
+        <field name="arch" type="xml">
+            <form string="Feedback Link">
+                <script type="text/javascript">
+                    function copyFeedbackLink()
+                    {
+                        console.log("kjghkjhkj")
+                        var field_value = document.getElementsByName('link');
+                        console.log(field_value[0].value)
+                        if (field_value.length)
+                        {
+                        navigator.clipboard.writeText(field_value[0].value)
+                        }
+                    }
+                </script>
+                <group>
+                    <group class="oe_title">
+                        <field name="link"/>
+
+                    </group>
+
+                </group>
+                <footer>
+                    <button string="Copy Link" name="action_done" onclick="copyFeedbackLink()" type="object" class="oe_highlight"
+                            help="Click Here to copy the meeting link to your clipboard"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+    <!--    <record id="wizard_action_for_feedback_form" model="ir.actions.act_window">-->
+    <!--        <field name="name">Feedback Link</field>-->
+    <!--        <field name="type">ir.actions.act_window</field>-->
+    <!--        <field name="res_model">copy.link.wizard.feedback</field>-->
+    <!--        <field name="view_mode">form</field>-->
+    <!--        <field name="view_id" ref="test_model_wizard_view_form"/>-->
+    <!--        <field name="target">new</field>-->
+    <!--    </record>-->
+</odoo>

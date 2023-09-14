@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="action_server_link_feedback" model="ir.actions.server">
+        <field name="name">Feedback Link</field>
+        <field name="model_id" ref="student_feedback.model_student_feedback"/>
+<!--        <field name="groups_id" eval="[(4, ref('account.group_account_user'))]"/>-->
+        <field name="state">code</field>
+        <field name="code">action = model.current_url_link_feedback()</field>
+    </record>
+    <menuitem name="Copy Link" id="menu_link_feedback" action="action_server_link_feedback"
+              parent="menu_feedback_students"
+              groups="student_feedback.student_feedback_coordinator"
+              sequence="9"/>
+</odoo>

@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+
+access_students_feedback,access_details,model_student_feedback,student_feedback_coordinator,1,1,1,0
+access_students_feedback_wizard,access_details,model_copy_link_wizard_feedback,student_feedback_coordinator,1,1,1,0
+admin_students_feedback,access_details,model_student_feedback,feedback_hr_manager,1,1,1,1
+admin_students_feedback_wizard,access_details,model_copy_link_wizard_feedback,feedback_hr_manager,1,1,1,1

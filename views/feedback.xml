@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="student_feedback_backend_form" model="ir.ui.view">
+        <field name="name">Feedback</field>
+        <field name="model">student.feedback</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Form">
+<!--                -->
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="student_name"/>
+                            <field name="coordinator_id"/>
+                            <field name="batch_id"/>
+                            <field name="feedback"/>
+                            <field name="star_rating"/>
+                            <field name="company_id" invisible="1"/>
+<!--                            <field name="text_to_copy"/>-->
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                </div>
+
+            </form>
+        </field>
+    </record>
+    <record id="student_feedback_list_view" model="ir.ui.view">
+        <field name="name">Feedbacks</field>
+        <field name="model">student.feedback</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student_name"/>
+                <field name="batch_id"/>
+                <field name="coordinator_id"/>
+                <field name="star_rating" widget="priority"/>
+            </tree>
+
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="feedback_action_view">
+        <field name="name">Feedback</field>
+        <field name="res_model">student.feedback</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+    <menuitem name="Students Feedback" id="menu_feedback_students"
+              action="feedback_action_view"
+              web_icon="student_feedback/static/description/icon.png"
+              sequence="9"/>
+<!--    <template id="student_feedback.CustomWidget" inherit_id="web.field_char">-->
+<!--        <xpath expr="//input" position="after">-->
+<!--            <button class="copy-button btn btn-default">Copy Text</button>-->
+<!--        </xpath>-->
+<!--    </template>-->
+
+    <!--    <menuitem name="My Tasks" id="menu_my_to_do_tasks"-->
+    <!--              action="to_do_custom_action_for_users"-->
+    <!--              parent="menu_to_do_tasks"-->
+    <!--              sequence="2"/>-->
+
+
+</odoo>
