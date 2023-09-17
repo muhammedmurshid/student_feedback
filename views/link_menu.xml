@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+<!--    <data>-->
+<!--        <template id="assets_backend" name="Your Module Assets" inherit_id="web.assets_backend">-->
+<!--            <xpath expr="." position="inside">-->
+<!--                <script type="text/javascript" src="/student_feedback/static/src/js/copy_to_clipboard.js"></script>-->
+<!--            </xpath>-->
+<!--        </template>-->
+<!--    </data>-->
     <record id="action_server_link_feedback" model="ir.actions.server">
         <field name="name">Feedback Link</field>
         <field name="model_id" ref="student_feedback.model_student_feedback"/>

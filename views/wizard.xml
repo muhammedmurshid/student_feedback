@@ -6,14 +6,23 @@
         <field name="arch" type="xml">
             <form string="Feedback Link">
                 <script type="text/javascript">
+<!--                    function copyFeedbackLink()-->
+<!--                    {-->
+<!--                        console.log("kjghkjhkj")-->
+<!--                        console.log-->
+<!--                        var field_value = document.getElementsByName('link');-->
+<!--                        console.log(field_value[0].value)-->
+<!--                        if (field_value.length)-->
+<!--                        {-->
+<!--                        navigator.clipboard.writeText(field_value[0].value)-->
+<!--                        }-->
+<!--                    }-->
                     function copyFeedbackLink()
                     {
-                        console.log("kjghkjhkj")
                         var field_value = document.getElementsByName('link');
-                        console.log(field_value[0].value)
                         if (field_value.length)
                         {
-                        navigator.clipboard.writeText(field_value[0].value)
+                        navigator.clipboard.writeText(field_value[0].innerHTML)
                         }
                     }
                 </script>

@@ -69,7 +69,6 @@ class CopyLinkWizard(models.TransientModel):
 
     link = fields.Char('Link', readonly=True)
 
-
     def action_done(self):
         print(self.link, 'link')
         print('done')
