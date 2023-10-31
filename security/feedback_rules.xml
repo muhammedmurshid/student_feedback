@@ -4,7 +4,7 @@
         <record id="feedback_coordinator_rules" model="ir.rule">
             <field name="name">Coordinator can only see his/her feedbacks</field>
             <field name="model_id" ref="model_student_feedback"/>
-            <field name="groups" eval="[(4, ref('student_feedback_coordinator'))]"/>
+            <field name="groups" eval="[(4, ref('logic_base.coordinator_logic_base'))]"/>
             <field name="domain_force">[('coordinator_id','=',user.id)]</field>
         </record>
     </data>

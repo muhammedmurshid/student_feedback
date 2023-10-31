@@ -19,6 +19,6 @@
               sequence="9"/>
     <menuitem name="Coordinator Feedback Link" id="menu_link_feedback_second" action="action_server_link_feedback"
               parent="menu_link_feedback"
-              groups="student_feedback.student_feedback_coordinator"
+              groups="logic_base.coordinator_logic_base"
               sequence="1"/>
 </odoo>

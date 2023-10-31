@@ -2,7 +2,7 @@
     'name': "Students Feedback",
     'version': "14.0.1.0",
     'sequence': "0",
-    'depends': ['base', 'mail', 'website'],
+    'depends': ['base', 'mail', 'website', 'logic_base'],
     'data': [
         'security/groups.xml',
         'security/ir.model.access.csv',
