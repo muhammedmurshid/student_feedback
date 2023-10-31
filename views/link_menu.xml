@@ -14,8 +14,11 @@
         <field name="state">code</field>
         <field name="code">action = model.current_url_link_feedback()</field>
     </record>
-    <menuitem name="Copy Link" id="menu_link_feedback" action="action_server_link_feedback"
+    <menuitem name="Form Links" id="menu_link_feedback"
               parent="menu_feedback_students"
-              groups="student_feedback.student_feedback_coordinator"
               sequence="9"/>
+    <menuitem name="Coordinator Feedback Link" id="menu_link_feedback_second" action="action_server_link_feedback"
+              parent="menu_link_feedback"
+              groups="student_feedback.student_feedback_coordinator"
+              sequence="1"/>
 </odoo>

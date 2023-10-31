@@ -48,10 +48,20 @@
         <field name="res_model">student.feedback</field>
         <field name="view_mode">tree,form</field>
     </record>
-    <menuitem name="Students Feedback" id="menu_feedback_students"
+    <menuitem name="Feedbacks" id="menu_feedback_students"
               action="feedback_action_view"
               web_icon="student_feedback/static/description/icon.png"
               sequence="9"/>
+
+    <menuitem name="Feedbacks" id="second_menu_feedback_students"
+              parent="menu_feedback_students"
+              sequence="1"/>
+
+    <menuitem name="Coordinator Feedbacks" id="second_students_feedback"
+              action="feedback_action_view"
+              parent="second_menu_feedback_students"
+              sequence="1"/>
+
 <!--    <template id="student_feedback.CustomWidget" inherit_id="web.field_char">-->
 <!--        <xpath expr="//input" position="after">-->
 <!--            <button class="copy-button btn btn-default">Copy Text</button>-->

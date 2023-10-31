@@ -11,6 +11,9 @@
         'views/wb_form.xml',
         'views/link_menu.xml',
         'views/wizard.xml',
+        'views/faculty_feedback.xml',
+        'views/faculty_feedback_link.xml',
+        'views/web_form_fac_feedback.xml',
         # 'views/assets.xml',
 
     ],

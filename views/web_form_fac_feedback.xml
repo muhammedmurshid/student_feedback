@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <template id="faculty_feedback_form_template">
+        <t t-call="website.layout">
+            <div id="request_form">
+                <section class="s_website_form" data-vcss="001" data-snippet="s_website_form">
+                    <div class="container">
+                        <form action="/feedback_faculty/submit">
+                            <br/>
+                            <div align="center">
+                                <h4>Faculty Feedback</h4>
+                            </div>
+                            <br/>
+                            <div class="s_website_form_rows row s_col_no_bgcolor">
+                                <div class="form-group col-12 s_website_form_field s_website_form_required">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px">
+                                            <span class="s_website_form_label_content">Your Name</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <input type="text"
+                                                   class="form-control s_website_form_input" name="student_name"
+                                                   required=""/>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px">
+                                            <span class="s_website_form_label_content">Faculty Name</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select name="faculty_id" t-attf-class="form-control s_website_form_input"
+                                                    required="1">
+                                                <t t-foreach="user" t-as="partner">
+                                                    <option t-att-value="partner.id">
+                                                        <t t-esc="partner.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field" data-type="char"
+                                     data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px">
+                                            <span class="s_website_form_label_content">Batch Name</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select name="batch_id" t-attf-class="form-control s_website_form_input"
+                                                    required="1">
+                                                <t t-foreach="batches" t-as="batch">
+                                                    <option t-att-value="batch.id">
+                                                        <t t-esc="batch.name"/>
+                                                    </option>
+                                                </t>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-12 s_website_form_field" data-type="char"
+                                     data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px">
+                                            <span class="s_website_form_label_content">Clarity of Topics</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select name="clarity_of_topics" class="form-control link-style">
+                                                <option t-attf-value="poor">Poor</option>
+                                                <option t-attf-value="average">Average</option>
+                                                <option t-attf-value="good">Good</option>
+                                                <option t-attf-value="excellent">Excellent</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field" data-type="char"
+                                     data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px">
+                                            <span class="s_website_form_label_content">Explanation of Theory Topics
+                                            </span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select name="explanation_of_theory_topics" class="form-control link-style">
+                                                <option t-attf-value="poor">Poor</option>
+                                                <option t-attf-value="average">Average</option>
+                                                <option t-attf-value="good">Good</option>
+                                                <option t-attf-value="excellent">Excellent</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field" data-type="char"
+                                     data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px">
+                                            <span class="s_website_form_label_content">Explanation of Problem
+                                                Questions
+                                            </span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select name="explanation_of_problem_question"
+                                                    class="form-control link-style">
+                                                <option t-attf-value="poor">Poor</option>
+                                                <option t-attf-value="average">Average</option>
+                                                <option t-attf-value="good">Good</option>
+                                                <option t-attf-value="excellent">Excellent</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field" data-type="char"
+                                     data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px">
+                                            <span class="s_website_form_label_content">Pace of Class</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <select name="pace_of_class" class="form-control link-style">
+                                                <option t-attf-value="very_slow">Very Slow</option>
+                                                <option t-attf-value="slow">Slow</option>
+                                                <option t-attf-value="normal">Normal</option>
+                                                <option t-attf-value="fast">Fast</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-12 s_website_form_field s_website_form_required"
+                                     data-type="text" data-name="Field">
+                                    <div class="row s_col_no_resize s_col_no_bgcolor">
+                                        <label class="col-form-label col-sm-auto s_website_form_label"
+                                               style="width: 200px">
+                                            <span class="s_website_form_label_content">Any Further Suggestions</span>
+                                            <span class="s_website_form_mark">*</span>
+                                        </label>
+                                        <div class="col-sm">
+                                            <textarea class="form-control s_website_form_input"
+                                                      name="feedback_name" required="" id="feedback_id"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group col-6 s_website_form_submit"
+                                     data-name="Submit Button" align="center">
+                                    <div style="width: 200px;"
+                                         class="s_website_form_label"/>
+                                    <button type="submit" id="submit_feedback"
+                                            class="btn btn-primary">Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </section>
+            </div>
+        </t>
+    </template>
+    <template id="tmp_faculty_feedback_form_thanks" name="Your Feedback Successfully Submitted">
+        <t t-call="website.layout">
+            <div id="wrap">
+                <div class="oe_structure" id="oe_structure_website_form_contact_us_thanks_1"/>
+                <div class="container mt-4">
+                    <div class="row">
+                        <div class="col-lg-7 col-xl-6 mr-lg-auto oe_structure">
+                            <section class="pt40 s_text_block pb40 o_colored_level o_cc o_cc1"
+                                     data-snippet="s_text_block" data-name="Text">
+                                <div class="container">
+                                    <span class="d-block fa fa-4x fa-thumbs-up mx-auto rounded-circle bg-primary"/>
+                                    <br/>
+                                    <h1 class="text-center">Thank You!</h1>
+                                    <div class="pb16 pt16 s_hr" data-snippet="s_hr" data-name="Separator">
+                                        <hr class="mx-auto border-top w-50 border-dark text-center"/>
+                                    </div>
+                                    <h5 class="text-center">
+                                        <span class="fa fa-check-circle"/>
+                                        <span>Your Feedback has been sent
+                                            <b>successfully</b>
+                                        </span>
+                                    </h5>
+
+                                </div>
+                            </section>
+                        </div>
+                        <div class="col-lg-4">
+                            <t t-call="website.company_description"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="oe_structure" id="oe_structure_website_form_contact_us_thanks_2"/>
+            </div>
+        </t>
+    </template>
+</odoo>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="model_faculty_feedback_form_view" model="ir.ui.view">
+        <field name="name">Faculty Feedback</field>
+        <field name="model">faculty.feedback</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form string="Faculty Feedback">
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="student_name" required="1"/>
+                            <field name="faculty_name" required="1"/>
+                            <field name="batch_id" required="1"/>
+
+                        </group>
+                        <group>
+                            <field name="clarity_of_topics"/>
+                            <field name="pace_of_class"/>
+                            <field name="explanation_of_theory_topics"/>
+                            <field name="explanation_of_problem_question"/>
+                            <field name="any_further_suggestions"/>
+                            <field name="company_id" invisible="1"/>
+                        </group>
+                    </group>
+                </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids"/>
+                    <field name="activity_ids"/>
+                    <field name="message_ids" options="{'post_refresh': 'recipients'}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+    <record id="model_faculty_feedback_list_view" model="ir.ui.view">
+        <field name="name">Faculty Feedback</field>
+        <field name="model">faculty.feedback</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="student_name"/>
+                <field name="faculty_name"/>
+                <field name="batch_id"/>
+                <field name="clarity_of_topics" widget="priority" readonly="1"/>
+                <field name="pace_of_class" readonly="1"/>
+                <field name="explanation_of_theory_topics" widget="priority" readonly="1"/>
+                <field name="explanation_of_problem_question" widget="priority" readonly="1"/>
+
+
+            </tree>
+
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="model_faculty_feedback_action">
+        <field name="name">Faculty Feedback</field>
+        <field name="res_model">faculty.feedback</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <menuitem name="Faculty Feedbacks" id="model_faculty_feedback_main_menu"
+              action="model_faculty_feedback_action"
+              parent="second_menu_feedback_students"
+              sequence="2"/>
+
+
+</odoo>

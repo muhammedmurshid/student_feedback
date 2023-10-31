@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="wizard_for_faculty_feedback_link" model="ir.ui.view">
+        <field name="name">Feedback Link</field>
+        <field name="model">faculty.feedback.link</field>
+        <field name="arch" type="xml">
+            <form string="Feedback Link">
+                <script>
+                    function copyResultLink()
+                    {
+                        var field_value = document.getElementsByName('link');
+                        console.log(field_value[0].value)
+                        if (field_value.length)
+                        {
+                        navigator.clipboard.writeText(field_value[0].value)
+                        }
+                    }
+                </script>
+                <group>
+                    <label for="batch_id" string="Batch"/>
+                    <div class="o_row">
+                        <field name="batch_id" required="1" placeholder="Batch"/>
+                        <field name="faculty_id" required="1" placeholder="Faculty"/>
+                        <field name="link" readonly="0"/>
+                    </div>
+
+                </group>
+                <footer>
+                    <button string="Copy Link" class="oe_highlight" type="object" name='action_copy_link'
+                            onclick="copyResultLink()"/>
+                    <button string="Discard" type="object" special='cancel'/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="link_wizard_faculty_feedback" model="ir.actions.act_window">
+        <field name="name">Faculty Feedback Wizard</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">faculty.feedback.link</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="wizard_for_faculty_feedback_link"/>
+        <field name="target">new</field>
+    </record>
+
+    <record id="action_server_link_feedback_faculty" model="ir.actions.server">
+        <field name="name">Faculty Feedback Link</field>
+        <field name="model_id" ref="student_feedback.model_faculty_feedback"/>
+        <!--        <field name="groups_id" eval="[(4, ref('account.group_account_user'))]"/>-->
+        <field name="state">code</field>
+        <field name="code">action = model.current_url_link_feedback_faculty()</field>
+    </record>
+
+    <menuitem id="menu_for_copy_faculty_feedback_link_wizard" sequence="10" name="Faculty Feedback Link"
+              action="action_server_link_feedback_faculty" parent="menu_link_feedback"/>
+</odoo>

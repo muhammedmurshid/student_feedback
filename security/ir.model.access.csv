@@ -4,3 +4,13 @@ access_students_feedback,access_details,model_student_feedback,student_feedback_
 access_students_feedback_wizard,access_details,model_copy_link_wizard_feedback,student_feedback_coordinator,1,1,1,0
 admin_students_feedback,access_details,model_student_feedback,feedback_hr_manager,1,1,1,1
 admin_students_feedback_wizard,access_details,model_copy_link_wizard_feedback,feedback_hr_manager,1,1,1,1
+
+access_fac_feedback,access_details,model_faculty_feedback,student_feedback_coordinator,1,1,1,1
+access_fac_feedback_admin,access_details,model_faculty_feedback,feedback_hr_manager,1,1,1,1
+
+access_fac_feedback_link,access_details,model_faculty_feedback_link,student_feedback_coordinator,1,1,1,1
+access_fac_feedback_link_admin,access_details,model_faculty_feedback_link,feedback_hr_manager,1,1,1,1
+
+
+
+
