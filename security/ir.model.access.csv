@@ -15,6 +15,10 @@ access_fac_feedback_link,access_details,model_faculty_feedback_link,logic_base.c
 access_fac_feedback_link_admin,access_details,model_faculty_feedback_link,logic_base.admin_logic_base,1,1,1,1
 access_fac_feedback_link_head,access_details,model_faculty_feedback_link,logic_base.academic_head_logic_base,1,1,1,1
 
+access_students_feedback_super_coordinator,access_details,model_student_feedback,logic_base.logic_base_super_coordinator,1,1,1,0
+access_students_feedback_wizard_super,access_details,model_copy_link_wizard_feedback,logic_base.logic_base_super_coordinator,1,1,1,0
+access_details_super,access_details_super,model_faculty_feedback,logic_base.logic_base_super_coordinator,1,1,1,1
+access_fac_feedback_link_super,access_details,model_faculty_feedback_link,logic_base.logic_base_super_coordinator,1,1,1,1
 
 
 
