@@ -55,14 +55,21 @@ class FeedbackLink(models.TransientModel):
     @api.depends('faculty_id', 'batch_id')
     def _action_copy_link(self):
         batch = self.batch_id.id
+        hexadecimal_string = hex(batch)
 
-        byte_value = batch.to_bytes((batch.bit_length() + 7) // 8, byteorder='big')
-        base64_encoded = base64.b64encode(byte_value).decode('utf-8')
+        print("Encoded data:", hexadecimal_string)
+
+        # byte_value = batch.to_bytes((batch.bit_length() + 7) // 8, byteorder='big')
+        # print(byte_value, 'batch byte value')
+        # base64_encoded = base64.b64encode(byte_value).decode('utf-8')
+        base64_encoded = hex(batch)
         print(base64_encoded, 'batch_number')
 
         faculty = self.faculty_id.id
+        hexadecimal_fac_string = hex(faculty)
         byte_value_fac = faculty.to_bytes((faculty.bit_length() + 7) // 8, byteorder='big')
-        base64_encoded_fac = base64.b64encode(byte_value_fac).decode('utf-8')
+        # base64_encoded_fac = base64.b64encode(byte_value_fac).decode('utf-8')
+        base64_encoded_fac = hexadecimal_fac_string
 
         company = self.env['res.company'].search([('id', '=', self.env.company.id)])
         self.link = company.website + '/' + 'feedback_faculty' + '/' + str(base64_encoded) + '/' + str(base64_encoded_fac)

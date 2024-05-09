@@ -44,17 +44,29 @@ class WebStudentFeedbackForm(http.Controller):
 class WebFacultyFeedbackForm(http.Controller):
     @http.route(['/feedback_faculty/<string:batch_id>/<string:user_id>'], type='http', auth="public", website=True)
     def feedback(self, batch_id, user_id, **kw):
+        print(batch_id, 'batch_id url')
+        decoded_data = int(batch_id, 16)
 
-        bytes_data = base64.b64decode(batch_id)
-        integer_value = int.from_bytes(bytes_data, byteorder='big', signed=False)
-        print(integer_value, 'integer_value')
+        print("Decoded data:", decoded_data)
 
-        bytes_data_user = base64.b64decode(user_id)
-        integer_value_user = int.from_bytes(bytes_data_user, byteorder='big', signed=False)
-        print(integer_value_user, 'integer_value_user')
+        # bytes_data = base64.b64decode(batch_id)
+        # base64_decoded = base64.urlsafe_b64decode(batch_id)
+        # print(base64_decoded, 'batch_id bytes')
+        # integer_value = int.from_bytes(base64_decoded, byteorder='big', signed=False)
+        # base64_decoded = base64.urlsafe_b64decode(integer_value)
+        # decodedBytes = base64.b64decode(bytes_data)
+        # decodedStr = str(decodedBytes, "utf-8")
+        # decoded_data = int(hexadecimal_string, 16)
+        #
+        # print("Decoded data:", decoded_data)
+        decoded_fac_data = int(user_id, 16)
 
-        batch = request.env['logic.base.batch'].sudo().search([('id', '=', int(integer_value))])
-        user = request.env['res.users'].sudo().search([('id', '=', int(integer_value_user))])
+        # bytes_data_user = base64.b64decode(user_id)
+        # integer_value_user = int.from_bytes(bytes_data_user, byteorder='big', signed=False)
+        # print(integer_value_user, 'integer_value_user')
+
+        batch = request.env['logic.base.batch'].sudo().search([('id', '=', int(decoded_data))])
+        user = request.env['res.users'].sudo().search([('id', '=', int(decoded_fac_data))])
 
         values = {
             'batches': batch,
